@@ -15,4 +15,7 @@ Route::get('/', function () {
     return view('welcome');
     get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
     post('signup', 'Auth\RegisterController@register')->name('signup.post');
+    get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    post('login', 'Auth\LoginController@login')->name('login.post');
+    get('logout', 'Auth\LoginController@logout')->name('logout.get');
 });
