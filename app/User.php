@@ -84,19 +84,6 @@ public function feed_microposts()
         $follow_user_ids[] = $this->id;
         return Micropost::whereIn('user_id', $follow_user_ids);
     }
-    public function index()
-    {
-        $data = [];
-        if (\Auth::check()) {
-            $user = \Auth::user();
-            $microposts = $user->feed_microposts()->orderBy('created_at', 'desc')->paginate(10);
-
-            $data = [
-                'user' => $user,
-                'microposts' => $microposts,
-            ];
-        }
-        return view('welcome', $data);
-    }
+ 
    
 }
